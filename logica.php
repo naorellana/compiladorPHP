@@ -1,5 +1,5 @@
 <?php
- 
+ //recibe datos de formulario
 if(isset($_POST['submit'])){
 	$texto = $_POST['name'];
 }
@@ -8,7 +8,7 @@ else{
 }
 
 
-
+//*****FUNCIONES PARA ANALIZAR LA CADENA***
 function contarEspacios($texto){
 	$espacios=0;
 	for ($i=0; $i < strlen($texto) ; $i++) { 
@@ -50,7 +50,7 @@ function contarTabulacion($texto){
 	$tabulaciones = count($exp);
 	return $tabulaciones-1;
 }
-
+//IMPRIMIENDO RESULTADOS
 echo " <div class=\"collection light-blue lighten-1\">
     <a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"\">".$texto."</span>El texto ingresado (sin formato): </a>
     <a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"Palabras\">".contarPalabras($texto)."</span>El texto contiene: </a>
@@ -59,12 +59,6 @@ echo " <div class=\"collection light-blue lighten-1\">
     <a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"Saltos De Linea\">".contarLineas($texto)."</span>El texto contiene: </a>
 
   </div>";
-
-
-
-
-
- 
 ?>
 
 
