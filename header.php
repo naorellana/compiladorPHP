@@ -24,3 +24,14 @@
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+  <!-- titulo -->
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <h1 class="header center orange-text">Pequeño Analizador Léxico</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Utilice el TextArea para escribir o pegar el texto que desea verificar.</h5>
+      </div>
+    </div>
+  </div>
+
+  

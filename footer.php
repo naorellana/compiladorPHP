@@ -24,10 +24,7 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/mensaje.js"></script>
-  <script src="js/revisiones.js"></script>
-  <script src="js/inteligenciaMaquina.js"></script>
-  <script src="js/iniciarjuego.js"></script>
+  <script src="js/tab.js"></script>
 
   </body>
 </html>
