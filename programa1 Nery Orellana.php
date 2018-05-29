@@ -1,13 +1,15 @@
 <?php
-//$texto="";
- //recibe datos de formulario de texto
+//***ver el programa funcionando y descargar codigo completo en
+//  http://umgproyectos.hol.es/compilador/ ******
+
+ //recibe datos de formulario
 if(isset($_POST['submit'])){
 	$texto = $_POST['name'];
 }
-//recibe datos de archivo de texto
-if(isset($_POST['archivoTextoBtn'])){
-	$texto = $textoArchivo;
+else{
+	$texto="";
 }
+
 
 //*****FUNCIONES PARA ANALIZAR LA CADENA***
 function contarEspacios($texto){
