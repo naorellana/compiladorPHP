@@ -13,6 +13,7 @@ if(isset($_POST['archivoTextoBtn'])){
 ini_set('display_errors', 'Off');
 $phrases=$texto;
 function contarPalRepetidas($phrases) {
+	echo $phrases;
   $counts = array();
   foreach ($phrases as $phrase) {
     $words = explode(' ', $phrase);
@@ -61,18 +62,13 @@ function contarLineas($texto){
 }
 
 
-function contarTabulacion($texto){
-	$exp = explode("\t", $texto);
-	$tabulaciones = count($exp);
-	return $tabulaciones-1;
-}
+
 //IMPRIMIENDO RESULTADOS
 echo " <div class=\"collection light-blue lighten-1\">
     <a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"\">".$texto."</span>El texto ingresado (sin formato): </a>
     <a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"Palabras\">".contarPalabras($texto)."</span>El texto contiene: </a>
     <a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"Espacios\">".contarEspacios($texto)."</span>El texto contiene: </a>
-    <a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"Tabulacione\">".contarTabulacion($texto)."</span>El texto contiene: </a>
-		<a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"Repetidas\">".contarPalRepetidas($texto)."</span>El texto contiene: </a>
+		<a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"Repetidas\">".contarPalRepetidas(array($texto))."</span>El texto contiene: </a>
     <a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"Saltos De Linea\">".contarLineas($texto)."</span>El texto contiene: </a>
 
   </div>";
