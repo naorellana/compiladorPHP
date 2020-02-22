@@ -10,14 +10,29 @@ if(isset($_POST['archivoTextoBtn'])){
 }
 
 //*****FUNCIONES PARA ANALIZAR LA CADENA***
+ini_set('display_errors', 'Off');
+$phrases=$texto;
+function contarPalRepetidas($phrases) {
+  $counts = array();
+  foreach ($phrases as $phrase) {
+    $words = explode(' ', $phrase);
+    foreach ($words as $word) {
+      $word = preg_replace("#[^a-zA-Z\-]#", "", $word);
+      $counts[$word] += 1;
+    }
+  }
+  return print_r($counts);
+}
+
+
 function contarEspacios($texto){
 	$espacios=0;
-	for ($i=0; $i < strlen($texto) ; $i++) { 
+	for ($i=0; $i < strlen($texto) ; $i++) {
 		if (substr($texto, $i,1)==" ") {
 			$espacios++;
 		}
 
-	}	
+	}
 	return $espacios;
 }
 
@@ -28,21 +43,21 @@ function contarPalabras($texto){
 
 function contarPalSoloEspacios($texto){
 	$palabra=0;
-	for ($i=0; $i < strlen($texto) ; $i++) { 
+	for ($i=0; $i < strlen($texto) ; $i++) {
 		if (substr($texto, $i,1)==" "){
 			if (substr($texto, $i+1,1)!=" " OR substr($texto, $i+1,1)!="\n" OR substr($texto, $i+1,1)!="\t"){
 				$palabra++;
 			}
 		}
 
-	}	
+	}
 	return $palabra;
 }
 
 function contarLineas($texto){
 	$exp = explode("\n", $texto);
 	$lineas = count($exp);
-	return $lineas-1;
+	return $lineas;
 }
 
 
@@ -57,9 +72,8 @@ echo " <div class=\"collection light-blue lighten-1\">
     <a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"Palabras\">".contarPalabras($texto)."</span>El texto contiene: </a>
     <a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"Espacios\">".contarEspacios($texto)."</span>El texto contiene: </a>
     <a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"Tabulacione\">".contarTabulacion($texto)."</span>El texto contiene: </a>
+		<a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"Repetidas\">".contarPalRepetidas($texto)."</span>El texto contiene: </a>
     <a class=\"collection-item \"><span class=\"new badge light-blue lighten-1\" data-badge-caption=\"Saltos De Linea\">".contarLineas($texto)."</span>El texto contiene: </a>
 
   </div>";
 ?>
-
-
